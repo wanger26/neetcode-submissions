@@ -1,0 +1,29 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        // Time: O(n)
+        // Space: O(1)
+        int redCount = 0;
+        int whiteCount = 0;
+        int blueCount = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] == 0) {
+                redCount++;
+            } else if (nums[i] == 1) {
+                whiteCount++;
+            } else {
+                blueCount++;
+            }
+        }
+
+        for(int i=0; i < nums.length; i++) {
+            if(i < redCount) {
+                nums[i] = 0;
+            } else if (i < redCount + whiteCount) {
+                nums[i] = 1;
+            } else {
+                nums[i] = 2;
+            }
+        }
+    }
+}
