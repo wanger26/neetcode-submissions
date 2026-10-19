@@ -1,0 +1,24 @@
+class Solution {
+    public String removeStars(String s) {
+
+        // Time: O(n)
+        // Space: O(n)
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '*') {
+                stack.pop();
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+
+        StringBuilder bldr = new StringBuilder();
+        while(!stack.isEmpty()) {
+            bldr.append(stack.pop());
+        }
+
+        return bldr.reverse().toString();
+
+
+    }
+}
